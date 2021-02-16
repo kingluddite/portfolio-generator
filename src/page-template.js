@@ -138,25 +138,25 @@ module.exports = (templateData) => {
 
     <body>
       <header>
-        <div className="container flex-row justify-space-between align-center py-3">
-          <h1 className="page-title text-secondary bg-dark py-2 px-3">${
+        <div class="container flex-row justify-space-between align-center py-3">
+          <h1 class="page-title text-secondary bg-dark py-2 px-3">${
             header.name
           }</h1>
-          <nav className="flex-row">
+          <nav class="flex-row">
            <a href="https://github.com/${
              header.github
-           }" className="ml-2 my-1 px-2 py-1 bg-secondary text-dark">${
+           }" class="ml-2 my-1 px-2 py-1 bg-secondary text-dark">${
     header.github
   }</a>
           </nav>
         </div>
       </header>
-      <main className="container my-5">
+      <main class="container my-5">
         ${generateAbout(about)}
         ${generateProjects(projects)}
       </main>
-      <footer className="container text-center py-3">
-        <h3 className="text-dark">&copy; ${new Date().getFullYear()} by ${
+      <footer class="container text-center py-3">
+        <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${
     header.name
   }</h3>
       </footer>

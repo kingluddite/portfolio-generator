@@ -1,15 +1,9 @@
-// const fs = require("fs");
-// const generatePage = require("./src/page-template");
-//
-// const pageHTML = generatePage(name, github);
-//
-// fs.writeFile("./index.html", pageHTML, (err) => {
-//   if (err) throw err;
-//
-//   console.log("Portfolio complete! Check out index.html to see the output");
-// });
+const fs = require("fs");
+const generatePage = require("./src/page-template");
 
 const inquirer = require("inquirer");
+// const mockData = require("./src/mocks/my-mock");
+
 const promptUser = () => {
   return inquirer.prompt([
     {
@@ -101,6 +95,21 @@ Add a New Project
           },
         },
         {
+          type: "checkbox",
+          name: "languages",
+          message:
+            "What languages did you use with this project? (Check all that apply)",
+          choices: [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "ES6",
+            "jQuery",
+            "Bootstrap",
+            "Node",
+          ],
+        },
+        {
           type: "input",
           name: "link",
           message: "Enter the Github link to your project (Required)",
@@ -144,5 +153,12 @@ Add a New Project
 promptUser()
   .then(promptProject)
   .then((portfolioData) => {
-    console.log(portfolioData);
+    const pageHTML = generatePage(portfolioData);
+    // const pageHTML = generatePage(mockData);
+    //
+    fs.writeFile("./index.html", pageHTML, (err) => {
+      if (err) throw err;
+
+      console.log("Portfolio complete! Check out index.html to see the output");
+    });
   });
